@@ -26,8 +26,6 @@ The system should help a student:
 10. Schedule preparation activities.
 11. Track applications.
 12. Measure placement readiness.
-13. Simulate recruiter/interviewer behavior.
-14. Maintain a long-term "Placement Twin" representing the student's career state.
 
 The application must NOT behave like a generic chatbot.
 
@@ -106,18 +104,16 @@ Phase 1  → Foundation
 Phase 2  → Authentication + Student Profile
 Phase 3  → Job Intelligence
 Phase 4  → Resume / Document Intelligence
-Phase 5  → Skill Gap Engine
-Phase 6  → Resume Generator
-Phase 7  → Placement Workspace
-Phase 8  → BYOK LLM Gateway
-Phase 9  → Google Integration
-Phase 10 → Mock Interview
-Phase 11 → Readiness Engine
-Phase 12 → Placement Twin
-Phase 13 → Recruiter Simulation
-Phase 14 → Security + Hardening
-Phase 15 → Testing + Observability
-Phase 16 → Production Deployment
+Phase 5  → BYOK LLM Gateway & JD Intelligence
+Phase 6  → Skill Gap Engine
+Phase 7  → Personalized Learning Engine
+Phase 8  → Job-Specific Resume Generator
+Phase 9  → Placement Workspace & Application Tracker
+Phase 10 → Google Integration
+Phase 11 → Mock Interview Engine
+Phase 12 → Readiness Engine
+Phase 13 → Frontend Integration (Web UI)
+Phase 14 → Testing, Observability & Verification
 ```
 
 Never jump ahead unless the required dependency exists.
@@ -304,8 +300,6 @@ InterviewAnswer
 InterviewEvaluation
 
 ReadinessSnapshot
-
-PlacementTwin
 
 OAuthConnection
 
