@@ -25,6 +25,7 @@
 * Keep the repository clean.
 * No unnecessary files, dependencies, refactors, or generated artifacts.
 * **No code comments** unless explicitly requested.
+* **Separation of API Operations**: All API calls and backend communication operations MUST be placed in dedicated service files (e.g. `src/services/*.ts`) and imported into components. Never execute direct fetch/API calls inside UI components.
 
 ## Execution
 
