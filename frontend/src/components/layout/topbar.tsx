@@ -1,26 +1,23 @@
 "use client";
 
-import { clearAuthToken, getAuthToken } from "@/library/api";
 import { healthService } from "@/services/health";
-import { LogOut } from "lucide-react";
+import { LogOut, User as UserIcon } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
+import { useAuth } from "@/firebase/AuthContext";
 
 export const Topbar: React.FC = () => {
-  const [token, setToken] = useState<string | null>(null);
+  const { user, token, logout } = useAuth();
   const [isReady, setIsReady] = useState<boolean>(true);
 
   useEffect(() => {
-    setToken(getAuthToken());
-
     healthService.checkHealth().then((healthy) => setIsReady(healthy));
   }, []);
 
-  const handleLogout = () => {
-    clearAuthToken();
-    setToken(null);
+  const handleLogout = async () => {
+    await logout();
     window.location.href = "/login";
   };
 
@@ -41,10 +38,19 @@ export const Topbar: React.FC = () => {
       <div className="flex items-center gap-3">
         {token ? (
           <div className="flex items-center gap-3">
+            <div className="hidden sm:flex items-center gap-1.5 text-xs font-bold text-neutral-700">
+              <UserIcon className="w-3.5 h-3.5" />
+              <span>{user?.full_name || user?.email || "Student"}</span>
+            </div>
             <Badge variant="default" className="text-xs">
               ACTIVE SESSION
             </Badge>
-            <Button variant="secondary" size="sm" onClick={handleLogout} className="flex items-center gap-1.5">
+            <Button
+              variant="secondary"
+              size="sm"
+              onClick={handleLogout}
+              className="flex items-center gap-1.5 border-2 border-black shadow-[2px_2px_0px_#000]"
+            >
               <LogOut className="w-3.5 h-3.5" />
               <span>Logout</span>
             </Button>
@@ -52,12 +58,12 @@ export const Topbar: React.FC = () => {
         ) : (
           <div className="flex items-center gap-2">
             <Link href="/login">
-              <Button variant="secondary" size="sm">
+              <Button variant="secondary" size="sm" className="border-2 border-black shadow-[2px_2px_0px_#000]">
                 Login
               </Button>
             </Link>
             <Link href="/register">
-              <Button variant="primary" size="sm">
+              <Button variant="primary" size="sm" className="shadow-[2px_2px_0px_#000]">
                 Register
               </Button>
             </Link>

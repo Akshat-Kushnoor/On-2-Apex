@@ -58,7 +58,12 @@ class Settings(BaseSettings):
     # Google Integration
     GOOGLE_CLIENT_ID: str | None = None
     GOOGLE_CLIENT_SECRET: str | None = None
-    GOOGLE_REDIRECT_URI: str = "http://localhost:8000/api/v1/google/oauth2/callback"
+    GOOGLE_REDIRECT_URI: str = "http://localhost:8000/api/v1/auth/oauth/google/callback"
+
+    # GitHub Integration
+    GITHUB_CLIENT_ID: str | None = None
+    GITHUB_CLIENT_SECRET: str | None = None
+    GITHUB_REDIRECT_URI: str = "http://localhost:8000/api/v1/auth/oauth/github/callback"
 
 
 settings = Settings()

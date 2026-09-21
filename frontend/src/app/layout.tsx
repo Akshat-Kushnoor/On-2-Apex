@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import React from "react";
 import "./globals.css";
+import { AuthProvider } from "@/firebase/AuthContext";
 
 export const metadata: Metadata = {
   title: "ON-2-APEX — AI Placement Coach",
@@ -15,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full bg-neutral-50 text-black flex flex-col font-sans">
-        {children}
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );
