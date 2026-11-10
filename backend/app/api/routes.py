@@ -11,6 +11,7 @@ from app.api.v1.endpoints.profile import router as profile_router
 from app.api.v1.endpoints.resumes import router as resumes_router
 from app.api.v1.endpoints.workspace import router as workspace_router
 from app.api.v1.endpoints.google import router as google_router
+from app.api.v1.endpoints.interviews import router as interviews_router
 
 api_router = APIRouter()
 
@@ -27,4 +28,6 @@ api_router.include_router(google_router, prefix="/google", tags=["Google Integra
 api_router.include_router(documents_router, prefix="/documents", tags=["Document Intelligence"])
 api_router.include_router(llm_router, prefix="/settings/llm", tags=["BYOK LLM Gateway"])
 api_router.include_router(llm_router, prefix="/llm", tags=["BYOK LLM Gateway"])
+api_router.include_router(interviews_router, prefix="/interviews", tags=["Auto Mock Interview"])
+
 

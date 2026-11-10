@@ -7,6 +7,10 @@ export interface HealthResponse {
 export interface ReadyResponse {
   status: string;
   database: string;
+  checks?: {
+    database?: string;
+    local_db_directory?: string;
+  };
 }
 
 export const healthService = {
@@ -21,7 +25,16 @@ export const healthService = {
 
   checkReady: async (): Promise<ReadyResponse> => {
     try {
-      return await api.get<ReadyResponse>("/ready");
+      const res = await api.get<{
+        status: string;
+        database?: string;
+        checks?: { database?: string; local_db_directory?: string };
+      }>("/ready");
+      return {
+        status: res.status,
+        database: res.database || res.checks?.database || "connected",
+        checks: res.checks,
+      };
     } catch {
       return { status: "unavailable", database: "disconnected" };
     }

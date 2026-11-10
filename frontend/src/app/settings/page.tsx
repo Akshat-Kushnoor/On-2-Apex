@@ -33,7 +33,6 @@ import {
   Key,
   Globe,
   Database,
-  Terminal,
   ExternalLink,
   Lock,
 } from "lucide-react";
@@ -644,44 +643,6 @@ export default function SettingsPage() {
                   <div className="flex items-center justify-between text-xs py-1">
                     <span className="font-bold text-neutral-600">Platform Version:</span>
                     <span className="font-black text-black">v1.0.0 (On-2-Apex)</span>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="border-2 border-black shadow-[4px_4px_0px_#000] bg-white">
-                <CardHeader className="border-b-2 border-black bg-neutral-50 p-4">
-                  <div className="flex items-center gap-2">
-                    <Terminal className="w-4 h-4 text-black" />
-                    <CardTitle className="text-sm font-black uppercase tracking-wider">
-                      Keyboard Shortcuts
-                    </CardTitle>
-                  </div>
-                </CardHeader>
-
-                <CardContent className="p-4 space-y-2">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-medium text-neutral-600">Find Jobs:</span>
-                    <kbd className="px-2 py-0.5 bg-neutral-100 border border-black rounded-[3px] font-mono text-[10px] font-bold">
-                      G then J
-                    </kbd>
-                  </div>
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-medium text-neutral-600">Workspace Kanban:</span>
-                    <kbd className="px-2 py-0.5 bg-neutral-100 border border-black rounded-[3px] font-mono text-[10px] font-bold">
-                      G then W
-                    </kbd>
-                  </div>
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-medium text-neutral-600">Resume Studio:</span>
-                    <kbd className="px-2 py-0.5 bg-neutral-100 border border-black rounded-[3px] font-mono text-[10px] font-bold">
-                      G then R
-                    </kbd>
-                  </div>
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-medium text-neutral-600">Candidate Profile:</span>
-                    <kbd className="px-2 py-0.5 bg-neutral-100 border border-black rounded-[3px] font-mono text-[10px] font-bold">
-                      G then P
-                    </kbd>
                   </div>
                 </CardContent>
               </Card>

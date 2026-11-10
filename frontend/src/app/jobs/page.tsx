@@ -38,8 +38,6 @@ const AVAILABLE_SOURCES = [
   { id: "indeed", label: "Indeed", status: "Active" },
   { id: "linkedin", label: "LinkedIn", status: "Guest API" },
   { id: "google", label: "Google Jobs", status: "Parser Deprecated" },
-  { id: "glassdoor", label: "Glassdoor", status: "Blocked" },
-  { id: "zip_recruiter", label: "ZipRecruiter", status: "US 403" },
 ];
 
 const COUNTRY_OPTIONS = [
@@ -57,10 +55,9 @@ const formatSourceLabel = (src: string) => {
   if (lower.includes("indeed")) return "Indeed";
   if (lower.includes("direct") || lower.includes("campus")) return "Campus Direct";
   if (lower.includes("google")) return "Google Jobs";
-  if (lower.includes("glassdoor")) return "Glassdoor";
-  if (lower.includes("zip")) return "ZipRecruiter";
   return src.toUpperCase();
 };
+
 
 export default function JobsPage() {
   const [activeTab, setActiveTab] = useState<"all" | "saved">("all");
@@ -412,7 +409,7 @@ export default function JobsPage() {
             <span className="text-[10px] font-black uppercase text-neutral-500 mr-1 whitespace-nowrap">
               Channel Filter:
             </span>
-            {["All", "LinkedIn", "Indeed", "Campus Direct", "Google", "Glassdoor", "ZipRecruiter"].map((srcFilter) => (
+            {["All", "LinkedIn", "Indeed", "Campus Direct", "Google"].map((srcFilter) => (
               <button
                 key={srcFilter}
                 onClick={() => setSelectedSourceFilter(srcFilter)}
@@ -425,6 +422,7 @@ export default function JobsPage() {
                 {srcFilter}
               </button>
             ))}
+
           </div>
         </div>
 

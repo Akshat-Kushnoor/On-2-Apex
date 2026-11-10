@@ -119,3 +119,6 @@ export const jobService = {
     return await api.get<StructuredRequirementsOut>(`/jobs/${jobId}/analysis`);
   },
 };
+
+export const jobsService = jobService;
+

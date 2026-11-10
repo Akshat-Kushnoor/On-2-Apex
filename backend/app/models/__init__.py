@@ -19,6 +19,7 @@ from app.models.learning import LearningPlan, LearningTask
 from app.models.resume import GeneratedResume
 from app.models.application import Application, ApplicationEvent
 from app.models.oauth import OAuthConnection
+from app.models.interview import InterviewSession
 
 __all__ = [
     "Base",
@@ -45,4 +46,6 @@ __all__ = [
     "Application",
     "ApplicationEvent",
     "OAuthConnection",
+    "InterviewSession",
 ]
+

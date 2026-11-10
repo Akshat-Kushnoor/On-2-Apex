@@ -108,7 +108,7 @@ class JobSpySource(BaseJobSource):
         except ImportError as exc:
             return raw_jobs, {"jobspy": f"not_installed: {str(exc)}"}
 
-        requested_sites = query.sources if query.sources else ["linkedin", "indeed", "google", "glassdoor", "zip_recruiter"]
+        requested_sites = query.sources if query.sources else ["linkedin", "indeed", "google"]
         valid_site_names = [s.lower() for s in requested_sites]
 
         country = resolve_country(query.location, query.country)
